@@ -1,0 +1,18 @@
+{
+  "id" : "0884a91c-b464-47c7-8671-b1bdbd05d450",
+  "name" : "example",
+  "status" : "RUNNING",
+  "brokenMsg" : "",
+  "type" : "TEXT",
+  "minChunkSize" : 200,
+  "maxChunkSize" : 500,
+  "defaultK" : 5,
+  "wordDocTransMethod" : "TF_IDF",
+  "genTime" : 1711304504981,
+  "dataSourcePath" : "F:\\datasets\\vector_db_test\\",
+  "llmType" : "ChatGLM4",
+  "sysPrompt" : "请使用中文回答，一般不少于200字。",
+  "userPrompt" : "请根据提供的上下文信息、补充缺失的信息，并回答问题，一般不少于200字。上下文信息：<context>${context}</context>，问题: ${input}",
+  "desc" : null,
+  "chunkNum" : 21425
+}

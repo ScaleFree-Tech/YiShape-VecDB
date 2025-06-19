@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8">
+  <title>易形空间 - 向量数据库管理系统</title>
+  <link rel="stylesheet" href="/css/element_plus_index.css">
+  <link rel="stylesheet" href="/css/github-markdown.min.css">
+  <script src="/webjars/vue/3.5.15/dist/vue.global.prod.js"></script>
+  <script src="/js/icons-vue.js"></script>
+  <script src="/js/axios.min.js"></script>
+  <script src="/js/element-plus.js"></script>
+  <script src="/js/echarts.min.js"></script>
+  <script src="/js/echarts-wordcloud.min.js"></script>
+  <script src="/js/marked.min.js"></script>
+  <script src="/js/dexie.min.js"></script>
+  <script src="/js/katex_fun.js"></script>
+  <script src="/js/rere_helper.js"></script>
+  <script src="/js/rere_prompt.js"></script>
+  <script src="/js/mermaid.min.js"></script>
+
+
+  <script>
+    const app = Vue.createApp({});
+  </script>
+  @componentRegistration
+</head>
+
+<body>
+  <main id="main-vue" v-cloak>
+
+    @routeComponent
+
+  </main>
+
+  <script>
+
+    app.use(ElementPlus);
+    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+      app.component(key, component)
+    }
+    app.mount("#main-vue");
+
+  </script>
+
+  <style>
+    #main-vue {
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 60px;
+    }
+
+    hr {
+      border-top: 1px solid #e9e9eb;
+    }
+
+    .quoteThink {
+      font-size: 9pt;
+      color: #4a4a4a;
+      padding: 15px 15px 15px 15px;
+      background-color: rgb(247, 251, 254);
+    }
+
+    .searchResult {
+      text-align: left;
+      width: 690px;
+      border: 0px solid red;
+      font-size: 10pt;
+
+    }
+  </style>
+
+</body>
+
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
+
+</html>

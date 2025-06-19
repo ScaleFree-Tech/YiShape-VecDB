@@ -1,0 +1,37 @@
+{
+  "id" : "7f5af906-a987-448b-bf8f-f793b18191e5",
+  "name" : "image_test",
+  "nickName" : "ImageTest",
+  "status" : "RUNNING",
+  "brokenMsg" : "",
+  "disType" : "COS",
+  "defaultK" : 5,
+  "genTime" : 1750237932459,
+  "tempDataSourcePath" : "/example_data_sources/images_test",
+  "pathType" : "RELATIVE",
+  "vectorIndexType" : "Flat",
+  "ifAllowDownload" : true,
+  "fileNum" : 16,
+  "vecLen" : 2048,
+  "ord" : 1,
+  "type" : "IMAGE",
+  "embeddingMethod" : "ResNet50",
+  "ifMemory" : false,
+  "desc" : "",
+  "buildingPipeline" : {
+    "name" : "DB_BUILD",
+    "desc" : "图像库构建流程",
+    "items" : [ {
+      "ord" : 1,
+      "name" : "DB_Build_Start",
+      "desc" : "图像向量化",
+      "operation" : "DB_Build_Start"
+    }, {
+      "ord" : 2,
+      "name" : "DB_Vector_Build_Finished",
+      "desc" : "构建完成",
+      "operation" : "DB_Vector_Build_Finished"
+    } ],
+    "currentOrd" : 2
+  }
+}

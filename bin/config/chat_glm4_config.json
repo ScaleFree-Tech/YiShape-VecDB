@@ -1,0 +1,6 @@
+{
+  "requestIdTemplate" : "mycompany-%d",
+  "apiKey" : "a2a0dfcf571bb16631a901f20d16f428.GL7juC5FjyVEDkEn",
+  "model" : "GLM-4-FlashX",
+  "options" : "temperature:0.8\nnum_ctx:2048"
+}

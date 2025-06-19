@@ -1,0 +1,62 @@
+{
+  "id" : "f9971482-e842-4b93-9d69-c29a918c80ff",
+  "name" : "eco_laws",
+  "nickName" : "生态环境法",
+  "status" : "RUNNING",
+  "brokenMsg" : null,
+  "disType" : "COS",
+  "defaultK" : 5,
+  "genTime" : 1741099147075,
+  "tempDataSourcePath" : "/example_data_sources/laws",
+  "pathType" : "RELATIVE",
+  "vectorIndexType" : "Flat",
+  "ifAllowDownload" : true,
+  "fileNum" : 39,
+  "vecLen" : 768,
+  "ord" : 1,
+  "type" : "TEXT",
+  "minChunkSize" : 500,
+  "maxChunkSize" : 800,
+  "embeddingMethod" : "DistillBert",
+  "wordDocTransMethod" : "TF_IDF",
+  "questionType" : "LLM_PARSED",
+  "searchMethod" : "HYBRID",
+  "ifUseThinkChain" : false,
+  "llmType" : "DeepSeek",
+  "generateType" : "Chat",
+  "ifUseStreaming" : true,
+  "ifReRank" : true,
+  "chunkReturnType" : "original",
+  "sysPrompt" : "你是一个检索增强生成器，你将根据本地检索得到的和问题相关的答案重新汇总组织语言、提炼和问题相关的信息、补充缺失的信息，最后回答问题。如果本地检索得到的内容和问题无关，则无需参考，自行回答。",
+  "userPrompt" : "请根据提供的上下文信息、补充缺失的信息，并回答问题，一般不少于200字。如果上下文信息中没有所需答案，请自行回答。如果上下文信息与问题无关，则无需参考上下文信息，并自行回答。上下文信息：<context>${context}</context>，问题: ${query}",
+  "ifMemory" : false,
+  "desc" : "生态环境方面的法律法规。",
+  "chunkNum" : 715,
+  "avgChunkLen" : 175.58742,
+  "buildingPipeline" : {
+    "name" : "DB_BUILD",
+    "desc" : "文本库构建流程",
+    "items" : [ {
+      "ord" : 1,
+      "name" : "DB_Build_Start",
+      "desc" : "文本块构建",
+      "operation" : "DB_Build_Start"
+    }, {
+      "ord" : 2,
+      "name" : "DB_Chunk_Build_Finished",
+      "desc" : "分词及词频统计",
+      "operation" : "DB_Chunk_Build_Finished"
+    }, {
+      "ord" : 3,
+      "name" : "DB_Word_Freq_Cal_Finished",
+      "desc" : "文本块向量化",
+      "operation" : "DB_Word_Freq_Cal_Finished"
+    }, {
+      "ord" : 4,
+      "name" : "DB_Vector_Build_Finished",
+      "desc" : "构建完成",
+      "operation" : "DB_Vector_Build_Finished"
+    } ],
+    "currentOrd" : 4
+  }
+}

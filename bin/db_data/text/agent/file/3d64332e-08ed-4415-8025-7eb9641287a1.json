@@ -1,0 +1,13 @@
+{
+  "id" : "3d64332e-08ed-4415-8025-7eb9641287a1",
+  "name" : "论文评审",
+  "status" : "FINISHED",
+  "brokenMsg" : null,
+  "llmType" : "DeepSeek",
+  "dbName" : "paper",
+  "sysPrompt" : "你是一个对文档中的论文内容进行评审的工具。",
+  "userPrompt" : "${content}。\n请对论文的学术水平、创新性做出简要评述，包括选题意义、论文创新点、学科知识的掌握、写作规范性和逻辑性等（1000字以内）。\n并另起段落明确指出论文中存在的问题和不足之处，并请提出修改建议（1000字以内）。",
+  "outputPath" : "D:\\test\\",
+  "genTime" : 1745580248559,
+  "desc" : ""
+}

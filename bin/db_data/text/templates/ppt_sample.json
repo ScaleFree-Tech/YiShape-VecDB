@@ -1,0 +1,92 @@
+{
+  "title": "Beautiful Presentation",
+  "slides": [
+    {
+      "title": "Welcome",
+      "layout": "TITLE_SLIDE",
+      "content": [
+        {
+          "type": "text",
+          "text": "Created with the PowerPoint Template Generator"
+        }
+      ]
+    },
+    {
+      "title": "Agenda",
+      "layout": "TITLE_AND_CONTENT",
+      "content": [
+        {
+          "type": "bullet_points",
+          "points": [
+            "Introduction to the project",
+            "Key features of the library",
+            "Code examples",
+            "Demo and results",
+            "Future plans"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Beautiful Templates",
+      "layout": "TWO_COL",
+      "content": [
+        {
+          "type": "text",
+          "text": "Our library now supports beautiful templates for PowerPoint presentations. This makes it easy to create professional-looking slides with minimal effort."
+        },
+        {
+          "type": "bullet_points",
+          "points": [
+            "Professional themes included",
+            "Light and dark color schemes",
+            "Custom font options",
+            "Consistent styling across slides",
+            "Support for custom PowerPoint templates"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Key Features",
+      "layout": "TITLE_AND_CONTENT",
+      "content": [
+        {
+          "type": "bullet_points",
+          "points": [
+            "Convert JSON to PowerPoint with beautiful themes",
+            "Support for text, bullet points, and images",
+            "Customizable colors and fonts",
+            "Robust error handling",
+            "Easy to integrate with existing applications"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Example Image",
+      "layout": "TITLE_AND_CONTENT",
+      "content": [
+        {
+          "type": "text",
+          "text": "Below is an example image that demonstrates how images are handled:"
+        },
+        {
+          "type": "image",
+          "imageUrl": "https://example.com/sample.jpg",
+          "caption": "This is a sample image caption"
+        }
+      ]
+    },
+    {
+      "title": "Thank You!",
+      "layout": "TITLE_SLIDE",
+      "content": [
+        {
+          "type": "text",
+          "text": "Any questions?"
+        }
+      ]
+    }
+  ]
+} 

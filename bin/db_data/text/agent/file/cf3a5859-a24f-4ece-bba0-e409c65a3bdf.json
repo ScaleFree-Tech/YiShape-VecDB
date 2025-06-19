@@ -1,0 +1,13 @@
+{
+  "id" : "cf3a5859-a24f-4ece-bba0-e409c65a3bdf",
+  "name" : "论文评审2",
+  "status" : "FINISHED",
+  "brokenMsg" : null,
+  "llmType" : "YiShapeMQ",
+  "dbName" : "papers_xc",
+  "sysPrompt" : "你是一个对本科毕业论文质量进行评审的工具。",
+  "userPrompt" : "${content}。明确指出论文（设计）的调研论证材料收集是否适合论点要求、学术水平及创新点、论文（设计）论证能力、写作水平，同时要明确指出论文(设计)的不足之处及改进方向。",
+  "outputPath" : "D:\\test\\",
+  "genTime" : 1745944677355,
+  "desc" : ""
+}
