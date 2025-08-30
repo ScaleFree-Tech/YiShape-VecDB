@@ -260,9 +260,7 @@ This project focuses on the development of a dedicated graphical user interface 
    # Windows
    bin/YiShape.exe
    # or double-click bin/YiShape.exe
-   
-   # Linux/macOS
-   ./YiShape
+
    ```
 
 4. **Access System**
