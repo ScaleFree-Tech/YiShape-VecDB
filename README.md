@@ -1,8 +1,8 @@
 # YiShape-VecDB (易形空间向量数据库管理系统)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/your-username/YiShape-VecDB)
+[![Python](https://img.shields.io/badge/java-24+-blue.svg)](https://www.oracle.com/java/technologies/downloads/)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/ScaleFree-Tech/yishape)
 
 > 面向大语言模型、自然语言处理、图像检索等新型人工智能应用的专用向量数据库管理系统及场景应用辅助系统
 
