@@ -288,7 +288,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### Contact Us
 
-- Project Homepage: [https://github.com/ScaleFree-Tech/yishape](https://github.com/ScaleFree-Tech/YiShape-VecDB)
+- Project Homepage: [https://github.com/ScaleFree-Tech/YiShape-VecDB](https://github.com/ScaleFree-Tech/YiShape-VecDB)
 - Issue Reports: [Issues](https://github.com/ScaleFree-Tech/YiShape-VecDB/issues)
 - Feature Suggestions: [Discussions](https://github.com/ScaleFree-Tech/YiShape-VecDB/discussions)
 
