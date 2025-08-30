@@ -1,6 +1,6 @@
 # YiShape-VecDB (易形空间向量数据库管理系统)
 
-[![License](https://img.shields.io/badge/license-GPL-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-GPL-3.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/java-24+-blue.svg)](https://www.oracle.com/java/technologies/downloads/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/ScaleFree-Tech/yishape)
 
@@ -16,7 +16,9 @@
 
 "易形空间向量数据库"系统是面向大语言模型、自然语言处理、图像检索等新型人工智能应用的专用数据库管理系统及场景应用辅助系统，拥有完全自主知识产权。系统的核心功能包括：非结构数据（文本、图像、语音）的最优向量空间表征算法（自研）和最速检索空间索引算法（自研），主要面向企业的私有化部署，适用于垂直领域企业内部海量私有数据的知识提炼。
 
-系统内部还集成了DeepSeek、QWen等主流优质商用大模型，能通过Ollama在企业内网部署各类开源大模型，通过检索增强生成、图像分析与检索、大模型Agent等应用，并能够通过开放的API整合企业内部信息资源和企业部软件功能，实现传统业务的AI赋能。
+系统内部集成了DeepSeek、QWen等主流优质商用大模型，能通过Ollama在企业内网部署各类开源大模型，通过检索增强生成、图像分析与检索、大模型Agent等应用，并能够通过开放的API整合企业内部信息资源和企业部软件功能，实现传统业务的AI赋能。
+
+本项目专注于"易形空间向量数据库"的专用图形化界面（Graphical User Interface, GUI）开发，免费使用。
 
 ### 核心特性
 
@@ -188,7 +190,9 @@
 
 "YiShape Vector Database" is a specialized database management system and application assistance system for new artificial intelligence applications such as large language models, natural language processing, and image retrieval. The system has complete independent intellectual property rights. Its core functions include: optimal vector space representation algorithms (self-developed) and fastest retrieval space indexing algorithms (self-developed) for unstructured data (text, images, audio), mainly targeting enterprise private deployment, suitable for knowledge extraction from massive private data within vertical domain enterprises.
 
-The system internally integrates mainstream high-quality commercial large models such as DeepSeek and QWen, can deploy various open-source large models through Ollama in enterprise intranets, and realizes AI empowerment of traditional businesses through applications such as retrieval-augmented generation, image analysis and retrieval, and large model Agent, and can integrate enterprise internal information resources and enterprise software functions through open APIs.
+YiShape-VecDB internally integrates mainstream high-quality commercial large models such as DeepSeek and QWen, can deploy various open-source large models through Ollama in enterprise intranets, and realizes AI empowerment of traditional businesses through applications such as retrieval-augmented generation, image analysis and retrieval, and large model Agent, and can integrate enterprise internal information resources and enterprise software functions through open APIs.
+
+This project focuses on the development of a dedicated graphical user interface (GUI) for the "YiShape-VecDB", and all the files are free to use.
 
 ### Core Features
 
