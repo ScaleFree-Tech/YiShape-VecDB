@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-GPL-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/java-24+-blue.svg)](https://www.oracle.com/java/technologies/downloads/)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/ScaleFree-Tech/yishape)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)]([https://github.com/ScaleFree-Tech/YiShape-VecDB](https://github.com/ScaleFree-Tech/YiShape-VecDB)
 
 > 易形空间 - 寓意通过灵活、丰富的空间变换，实现最优向量表征、向量索引与向量检索计算。
 
@@ -19,6 +19,10 @@
 系统使用JAVA开发，内部集成了DeepSeek、QWen等主流优质商用大模型，能通过Ollama在企业内网部署各类开源大模型，通过检索增强生成、图像分析与检索、大模型Agent等应用，并能够通过开放的API整合企业内部信息资源和企业部软件功能，实现传统业务的AI赋能。
 
 本项目专注于"易形空间向量数据库"的专用图形化界面（Graphical User Interface, GUI）开发，免费使用。
+
+### 系统演示
+
+- [📖 系统演示地址](http://demo.yishape.com)
 
 ### 核心特性
 
@@ -106,7 +110,7 @@
 1. **下载安装包**
    ```bash
    # 下载最新版本
-   wget https://github.com/ScaleFree-Tech/yishape/releases/latest/download/yi_shape_win64_vx.x.x.zip
+   wget https://github.com/ScaleFree-Tech/YiShape-VecDB/releases/latest/download/yi_shape_win64_vx.x.x.zip
    ```
 
 2. **解压安装**
@@ -176,9 +180,9 @@
 
 ### 联系我们
 
-- 项目主页: [https://github.com/ScaleFree-Tech/yishape](https://github.com/ScaleFree-Tech/yishape)
-- 问题反馈: [Issues](https://github.com/ScaleFree-Tech/yishape/issues)
-- 功能建议: [Discussions](https://github.com/ScaleFree-Tech/yishape/discussions)
+- 项目主页: [https://github.com/ScaleFree-Tech/YiShape-VecDB](https://github.com/ScaleFree-Tech/YiShape-VecDB)
+- 问题反馈: [Issues](https://github.com/ScaleFree-Tech/YiShape-VecDB/issues)
+- 功能建议: [Discussions](https://github.com/ScaleFree-Tech/YiShape-VecDB/discussions)
 
 ---
 
@@ -191,6 +195,10 @@
 YiShape-VecDB internally integrates mainstream high-quality commercial large models such as DeepSeek and QWen, can deploy various open-source large models through Ollama in enterprise intranets, and realizes AI empowerment of traditional businesses through applications such as retrieval-augmented generation, image analysis and retrieval, and large model Agent, and can integrate enterprise internal information resources and enterprise software functions through open APIs.
 
 This project focuses on the development of a dedicated graphical user interface (GUI) for the "YiShape-VecDB", and all the files are free to use.
+
+### DEMO
+
+- [📖 YiShape VecDB DEMO](http://demo.yishape.com)
 
 ### Core Features
 
@@ -237,7 +245,7 @@ This project focuses on the development of a dedicated graphical user interface 
 1. **Download Package**
    ```bash
    # Download latest version
-   wget https://github.com/ScaleFree-Tech/yishape/releases/latest/download/yi_shape_win64_vx.x.x.zip
+   wget https://github.com/ScaleFree-Tech/YiShape-VecDB/releases/latest/download/yi_shape_win64_vx.x.x.zip
    ```
 
 2. **Extract and Install**
@@ -280,9 +288,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### Contact Us
 
-- Project Homepage: [https://github.com/ScaleFree-Tech/yishape](https://github.com/ScaleFree-Tech/yishape)
-- Issue Reports: [Issues](https://github.com/ScaleFree-Tech/yishape/issues)
-- Feature Suggestions: [Discussions](https://github.com/ScaleFree-Tech/yishape/discussions)
+- Project Homepage: [https://github.com/ScaleFree-Tech/yishape](https://github.com/ScaleFree-Tech/YiShape-VecDB)
+- Issue Reports: [Issues](https://github.com/ScaleFree-Tech/YiShape-VecDB/issues)
+- Feature Suggestions: [Discussions](https://github.com/ScaleFree-Tech/YiShape-VecDB/discussions)
 
 ---
 
