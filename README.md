@@ -1,6 +1,6 @@
 # YiShape-VecDB (易形空间向量数据库管理系统)
 
-[![License](https://img.shields.io/badge/license-GPL-3.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/java-24+-blue.svg)](https://www.oracle.com/java/technologies/downloads/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/ScaleFree-Tech/yishape)
 
@@ -60,22 +60,22 @@
 ├─────────────────────────────────────────────────────────────┤
 │  前端界面层 (Vue.js)                                        │
 │  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
-│  │  数据库管理  │ │  RAG对话    │ │  Agent工具  │          │
+│  │  数据库管理   │ │  RAG对话     │ │  Agent工具   │          │
 │  └─────────────┘ └─────────────┘ └─────────────┘          │
 ├─────────────────────────────────────────────────────────────┤
 │  业务逻辑层 (Java)                                          │
 │  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
-│  │ 向量化引擎  │ │ 检索引擎    │ │ Agent框架   │          │
+│  │ 向量化引擎    │ │  检索引擎     │ │  Agent框架   │          │
 │  └─────────────┘ └─────────────┘ └─────────────┘          │
 ├─────────────────────────────────────────────────────────────┤
 │  数据存储层                                                 │
 │  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
-│  │ 向量数据库  │ │ 文件存储    │ │ 关系数据库  │          │
+│  │ 向量数据库    │ │  文件存储     │ │  关系数据库   │          │
 │  └─────────────┘ └─────────────┘ └─────────────┘          │
 ├─────────────────────────────────────────────────────────────┤
 │  模型服务层                                                 │
 │  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
-│  │ 向量化模型  │ │ 大语言模型  │ │ 重排序模型  │          │
+│  │ 向量化模型    │ │  大语言模型   │ │  重排序模型   │          │
 │  └─────────────┘ └─────────────┘ └─────────────┘          │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -178,9 +178,9 @@
 
 ### 联系我们
 
-- 项目主页: [https://github.com/your-username/YiShape-VecDB](https://github.com/your-username/YiShape-VecDB)
-- 问题反馈: [Issues](https://github.com/your-username/YiShape-VecDB/issues)
-- 功能建议: [Discussions](https://github.com/your-username/YiShape-VecDB/discussions)
+- 项目主页: [https://github.com/ScaleFree-Tech/yishape](https://github.com/ScaleFree-Tech/yishape)
+- 问题反馈: [Issues](https://github.com/ScaleFree-Tech/yishape/issues)
+- 功能建议: [Discussions](https://github.com/ScaleFree-Tech/yishape/discussions)
 
 ---
 
@@ -239,19 +239,19 @@ This project focuses on the development of a dedicated graphical user interface 
 1. **Download Package**
    ```bash
    # Download latest version
-   wget https://github.com/your-username/YiShape-VecDB/releases/latest/download/YiShape-VecDB.zip
+   wget https://github.com/ScaleFree-Tech/yishape/releases/latest/download/yi_shape_win64_vx.x.x.zip
    ```
 
 2. **Extract and Install**
    ```bash
-   unzip YiShape-VecDB.zip
+   unzip yi_shape_win64_vx.x.x.zip
    cd YiShape-VecDB
    ```
 
 3. **Start System**
    ```bash
    # Windows
-   YiShape.exe
+   bin/YiShape.exe
    
    # Linux/macOS
    ./YiShape
@@ -282,9 +282,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### Contact Us
 
-- Project Homepage: [https://github.com/your-username/YiShape-VecDB](https://github.com/your-username/YiShape-VecDB)
-- Issue Reports: [Issues](https://github.com/your-username/YiShape-VecDB/issues)
-- Feature Suggestions: [Discussions](https://github.com/your-username/YiShape-VecDB/discussions)
+- Project Homepage: [https://github.com/ScaleFree-Tech/yishape](https://github.com/ScaleFree-Tech/yishape)
+- Issue Reports: [Issues](https://github.com/ScaleFree-Tech/yishape/issues)
+- Feature Suggestions: [Discussions](https://github.com/ScaleFree-Tech/yishape/discussions)
 
 ---
 
