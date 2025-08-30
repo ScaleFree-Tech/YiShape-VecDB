@@ -106,22 +106,20 @@
 1. **下载安装包**
    ```bash
    # 下载最新版本
-   wget https://github.com/your-username/YiShape-VecDB/releases/latest/download/YiShape-VecDB.zip
+   wget https://github.com/ScaleFree-Tech/yishape/releases/latest/download/yi_shape_win64_vx.x.x.zip
    ```
 
 2. **解压安装**
    ```bash
-   unzip YiShape-VecDB.zip
-   cd YiShape-VecDB
+   unzip yi_shape_win64_vx.x.x.zip
+   cd yi_shape_win64_vx.x.x
    ```
 
 3. **启动系统**
    ```bash
    # Windows
-   YiShape.exe
+   bin/YiShape.exe
    
-   # Linux/macOS
-   ./YiShape
    ```
 
 4. **访问系统**
