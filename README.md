@@ -4,7 +4,7 @@
 [![Python](https://img.shields.io/badge/java-24+-blue.svg)](https://www.oracle.com/java/technologies/downloads/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/ScaleFree-Tech/yishape)
 
-> 面向大语言模型、自然语言处理、图像检索等新型人工智能应用的专用向量数据库管理系统及场景应用辅助系统
+> 基于JAVA开发的面向大语言模型、自然语言处理、图像检索等新型人工智能应用的专用向量数据库管理系统及场景应用辅助系统
 
 [English](#english) | [中文](#中文)
 
