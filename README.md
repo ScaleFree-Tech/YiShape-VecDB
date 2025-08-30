@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-GPL-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/java-24+-blue.svg)](https://www.oracle.com/java/technologies/downloads/)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)]([https://github.com/ScaleFree-Tech/YiShape-VecDB](https://github.com/ScaleFree-Tech/YiShape-VecDB)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/ScaleFree-Tech/YiShape-VecDB)
 
 > 易形空间 - 寓意通过灵活、丰富的空间变换，实现最优向量表征、向量索引与向量检索计算。
 
@@ -22,7 +22,7 @@
 
 ### 系统演示
 
-- [📖 系统演示地址](http://demo.yishape.com)
+- [📖 系统演示地址](http://demo.yishape.com/mag/)
 
 ### 核心特性
 
@@ -198,7 +198,7 @@ This project focuses on the development of a dedicated graphical user interface 
 
 ### DEMO
 
-- [📖 YiShape VecDB DEMO](http://demo.yishape.com)
+- [📖 YiShape VecDB DEMO](http://demo.yishape.com/mag/)
 
 ### Core Features
 
