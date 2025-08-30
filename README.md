@@ -101,7 +101,7 @@
 
 #### 系统要求
 - Windows 10+ / Linux / macOS
-- Java 8+ 或内置miniJRE
+- Java 24+ 或内置miniJRE
 - 内存: 4GB+ (推荐8GB+)
 - 存储: 10GB+ 可用空间
 
@@ -123,6 +123,7 @@
    ```bash
    # Windows
    bin/YiShape.exe
+   # 或双击bin/YiShape.exe启动程序
    
    ```
 
@@ -236,7 +237,7 @@ This project focuses on the development of a dedicated graphical user interface 
 
 #### System Requirements
 - Windows 10+ / Linux / macOS
-- Java 8+ or built-in miniJRE
+- Java 24+ or built-in miniJRE
 - Memory: 4GB+ (recommended 8GB+)
 - Storage: 10GB+ available space
 
@@ -258,6 +259,7 @@ This project focuses on the development of a dedicated graphical user interface 
    ```bash
    # Windows
    bin/YiShape.exe
+   # or double-click bin/YiShape.exe
    
    # Linux/macOS
    ./YiShape
