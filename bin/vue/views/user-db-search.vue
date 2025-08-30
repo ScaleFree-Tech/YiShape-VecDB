@@ -269,7 +269,7 @@ const UserDbSearch = {
             location.href = ("/user/user_list_db")
         },
         fetchDbData() {
-            let url = "/api/db_detail/" + this.db;
+            let url = "/api/text_db_detail/" + this.db;
             axios.get(url).then((response) => {
                 this.form = response.data;
                 this.k = this.form.defaultK;

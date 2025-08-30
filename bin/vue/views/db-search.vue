@@ -42,10 +42,10 @@
                             <el-icon :style="iconStyle">
                                 <Timer />
                             </el-icon>
-                            大模型类型
+                            大模型挂载
                         </div>
                     </template>
-                    {{ form.llmType }}
+                    {{ form.modelExpr }}
                 </el-descriptions-item>
 
                 <el-descriptions-item>
@@ -362,7 +362,7 @@ const DbSearch = {
             location.href = ("/mag/list_db")
         },
         fetchDbData() {
-            let url = "/api/db_detail/" + this.db;
+            let url = "/api/text_db_detail/" + this.db;
             axios.get(url).then((response) => {
                 this.form = response.data;
                 this.k = this.form.defaultK;

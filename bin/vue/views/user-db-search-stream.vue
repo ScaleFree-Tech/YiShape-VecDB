@@ -48,7 +48,7 @@
                             大模型类型
                         </div>
                     </template>
-                    <div class="model-info">{{ form.llmType }}</div>
+                    <div class="model-info">{{ form.modelExpr }}</div>
                 </el-descriptions-item>
 
                 <el-descriptions-item>
@@ -240,7 +240,7 @@ const UserDbSearchStream = {
         if (this.db != null) {
             this.fetchDbData(this.db);
         }
-
+        this.sessionId = generateUUID();
         // 动态加载KaTeX
         const loadKaTeX = () => {
             return loadKatexInstance();
@@ -320,7 +320,7 @@ const UserDbSearchStream = {
             location.href = ("/user/user_list_db")
         },
         fetchDbData() {
-            let url = "/api/db_detail/" + this.db;
+            let url = "/api/text_db_detail/" + this.db;
             axios.get(url).then((response) => {
                 this.form = response.data;
                 this.k = this.form.defaultK;
@@ -387,6 +387,7 @@ const UserDbSearchStream = {
             console.log(JSON.stringify(this.history))
             this.resultLLM = {};
             let params = {
+                "session_id":this.sessionId,
                 "model": this.form.llmType,
                 "query": this.queryLLM,
                 "db": this.db,
@@ -455,6 +456,7 @@ const UserDbSearchStream = {
             this.resultRAG = {};
             this.tempRAG = "";
             let params = {
+                "session_id":this.sessionId,
                 "query": this.queryRAG,
                 "k": this.k,
                 "db": this.db,

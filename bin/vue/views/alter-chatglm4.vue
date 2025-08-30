@@ -24,6 +24,18 @@
                     <el-form-item label="模型名称">
                         <el-input v-model="form.model" placeholder="智普开放平台上发布的模型名称" />
                     </el-form-item>
+                    <el-form-item label="是否启用" prop="ifInUse">
+                        <el-switch 
+                            v-model="form.ifInUse" 
+                            active-text="启用" 
+                            inactive-text="禁用"
+                            :active-value="true"
+                            :inactive-value="false"
+                        />
+                        <div style="margin-top: 5px;">
+                            <el-text size="small" type="info">启用后该模型配置将可用于LLM服务</el-text>
+                        </div>
+                    </el-form-item>
                     <el-form-item>
                         <el-button type="primary" @click="onSubmit">提交</el-button>
                     </el-form-item>
@@ -49,7 +61,8 @@ const AlterChatGlm4 = {
             form: {
                 apiKey: '',
                 requestIdTemplate: '',
-                model: ''
+                model: '',
+                ifInUse: true,
             },
             result: '',
         }

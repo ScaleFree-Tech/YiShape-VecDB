@@ -81,7 +81,7 @@
                             </div>
                             <template #tip>
                                 <div class="el-upload__tip">
-                                    支持的图像格式：jpg/png/tiff/bmp/gif。
+                                    支持的图像格式：jpg/png/tiff/bmp/gif，最大100MB。
                                 </div>
                             </template>
                         </el-upload>
@@ -248,6 +248,14 @@ const UserImageDbSearch = {
                 );
                 return;
             }
+
+            // 如果有上传的文件，再次验证文件类型
+            if (param.file && typeof param.file === 'object') {
+                if (!this.validateImageFile(param.file)) {
+                    return;
+                }
+            }
+
             this.loading = true;
             let url = "/query_image";
 
@@ -303,6 +311,15 @@ const UserImageDbSearch = {
         handleChange(file) {
             // 如果是新文件且状态为ready，则进行检索
             if (file.status === 'ready') {
+                // 验证文件是否为有效的图像文件
+                if (!this.validateImageFile(file.raw)) {
+                    // 如果验证失败，清除文件
+                    if (this.$refs.uploadRef) {
+                        this.$refs.uploadRef.clearFiles();
+                    }
+                    return;
+                }
+                
                 // 确保只保留最新的文件
                 if (this.$refs.uploadRef && this.$refs.uploadRef.uploadFiles) {
                     const fileList = this.$refs.uploadRef.uploadFiles;
@@ -319,6 +336,75 @@ const UserImageDbSearch = {
         },
         
         beforeUpload(file) {
+            // 检查文件类型
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/tiff', 'image/bmp', 'image/gif'];
+            const fileType = file.type.toLowerCase();
+            
+            // 检查文件扩展名
+            const allowedExtensions = ['.jpg', '.jpeg', '.png', '.tiff', '.bmp', '.gif'];
+            const fileName = file.name.toLowerCase();
+            const hasValidExtension = allowedExtensions.some(ext => fileName.endsWith(ext));
+            
+            // 双重检查：MIME类型和文件扩展名
+            if (!allowedTypes.includes(fileType) || !hasValidExtension) {
+                this.$msgbox({
+                    message: '只支持 jpg/jpeg/png/tiff/bmp/gif 格式的图片文件！',
+                    title: '文件格式错误',
+                    confirmButtonText: '确认',
+                    type: 'error',
+                });
+                return false;
+            }
+            
+            // 检查文件大小（可选，限制为100MB）
+            const maxSize = 100 * 1024 * 1024; // 100MB
+            if (file.size > maxSize) {
+                this.$msgbox({
+                    message: '文件大小不能超过100MB！',
+                    title: '文件过大',
+                    confirmButtonText: '确认',
+                    type: 'error',
+                });
+                return false;
+            }
+            
+            return true;
+        },
+
+        // 新增：验证文件是否为图像文件
+        validateImageFile(file) {
+            // 检查文件类型
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/tiff', 'image/bmp', 'image/gif'];
+            const fileType = file.type.toLowerCase();
+            
+            // 检查文件扩展名
+            const allowedExtensions = ['.jpg', '.jpeg', '.png', '.tiff', '.bmp', '.gif'];
+            const fileName = file.name.toLowerCase();
+            const hasValidExtension = allowedExtensions.some(ext => fileName.endsWith(ext));
+            
+            // 双重检查：MIME类型和文件扩展名
+            if (!allowedTypes.includes(fileType) || !hasValidExtension) {
+                this.$msgbox({
+                    message: '只支持 jpg/jpeg/png/tiff/bmp/gif 格式的图片文件！',
+                    title: '文件格式错误',
+                    confirmButtonText: '确认',
+                    type: 'error',
+                });
+                return false;
+            }
+            
+            // 检查文件大小（可选，限制为100MB）
+            const maxSize = 100 * 1024 * 1024; // 100MB
+            if (file.size > maxSize) {
+                this.$msgbox({
+                    message: '文件大小不能超过100MB！',
+                    title: '文件过大',
+                    confirmButtonText: '确认',
+                    type: 'error',
+                });
+                return false;
+            }
+            
             return true;
         },
 

@@ -76,8 +76,8 @@
                             <div style="font-size: 10pt;text-align: left;">
                             <el-text>大模型挂载：</el-text>
                             <el-select v-model="this.llmType" placeholder="选择辅助生成的大模型" style="width:400px;">
-                                <el-option v-for="item in this.llmTypes" :key="item.value" :label="item.label"
-                                    :value="item.value" />
+                                <el-option v-for="item in this.llms" :key="item.modelExpr" :label="item.modelExpr"
+                                    :value="item.modelExpr" />
                             </el-select>
                         </div>
 
@@ -125,7 +125,7 @@
 <script>
 const UserMakePpt = {
     mounted() {
-
+        this.loadLLMModels();
     },
     data() {
         return {
@@ -139,14 +139,23 @@ const UserMakePpt = {
             },
             tempPPT: "",
             llmType: "DeepSeek",
-            llmTypes: getRAGLLMTypes(),
+            llms: [],
         }
     },
     methods: {
         isEmpty(value) {
             return value === '';
         },
-
+        loadLLMModels() {
+                    let url = "/llm/get_all/text";
+                    axios.get(url).then((response) => {
+                        this.llms = response.data;
+                        if (this.llms.length > 0) {
+                            this.llmType = this.llms[0].modelExpr;
+                        }
+                        console.log(this.llms);
+                    });
+        },
         replaceLnWithBr(text) {
             tt = text.replaceAll('\<think\>', '\<div class="quoteThink"\>')
             tt = tt.replaceAll('\</think\>', '\</div\>')

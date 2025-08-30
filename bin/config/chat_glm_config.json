@@ -1,0 +1,7 @@
+{
+  "requestIdTemplate" : "mycompany-%d",
+  "apiKeyEncrypted" : "KlTCjqiQ8Ai5nFVAL2hF3ieQORU5Xq0z2N8bJgw0YCQhgntm1UeAwMCmXQ2qmrWwJjPJR9uy/PY=",
+  "model" : "GLM-4-FlashX",
+  "ifInUse" : true,
+  "options" : ""
+}

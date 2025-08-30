@@ -50,7 +50,7 @@
                             大模型挂载
                         </div>
                     </template>
-                    {{ form.llmType }}
+                    {{ form.modelExpr }}
                 </el-descriptions-item>
 
                 <el-descriptions-item width="170">
@@ -454,7 +454,7 @@ const DbDetail = {
             this.cloudChart = chart;
         },
         fetchDbData(db) {
-            let url = "/api/db_detail/" + db;
+            let url = "/api/text_db_detail/" + db;
             axios.get(url).then((response) => {
                 this.form = response.data;
                 console.log(this.form);

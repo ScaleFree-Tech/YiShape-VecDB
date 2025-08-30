@@ -1,0 +1,7 @@
+{
+  "requestIdTemplate" : "mycompany-%d",
+  "apiKeyEncrypted" : "EQWZRYxefV23l8GeiU05xeQeAosTWk7ZtWECZi5h43gFumNhuvgWxw==",
+  "model" : "qwen-plus",
+  "ifInUse" : true,
+  "options" : ""
+}

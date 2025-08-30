@@ -4,16 +4,16 @@
 
 function getCopyrightInfo() {
     let info = {
-        version: '易形空间 向量数据库管理系统 V0.8',
-        statement: '本系统由 电子科技大学 大数据与决策分析研究中心 & 西南财经大学 大数据研究院 联合研发，当前版本仅限科研用途！',
+        version: '易形空间 向量数据库管理系统 V0.9',
+        statement: 'YiShape Vector Database. All Rights Reserved.',
         copy: '@Copyright 2023-2025'
     };
     return info;
 }
 
 function parseActiveIndex(url) {
-    let supported = ['text_db_introduce', 'list_db', 'alter_db', 'list_domainword_task2', 'list_glove_task', 'alter_chat_glm4', 'alter_ollama',
-        'alter_deepseek', 'llm_test', 'alter_config', 'list_chunk_task', 'list_file_task', 'list_react_agent', 'list_agent_tool',
+    let supported = ['text_db_introduce', 'list_db', 'alter_db', 'list_domainword_task2', 'list_glove_task', 'alter_chat_glm','alter_qwen','alter_kimi', 'alter_ollama','alter_admin_config',
+        'alter_deepseek', 'llm_test', 'alter_config', 'list_chunk_task', 'list_file_task', 'list_react_agent', 'list_agent_tool','alter_api_key',
         'list_image_db', 'list_customized_db', 'api_doc', 'user_homepage'];
     let p = url.lastIndexOf("/");
     let path = url.substring(p + 1);

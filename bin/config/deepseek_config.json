@@ -1,1 +1,5 @@
-{"apiKey":"sk-a6c5aa200da44d7c8c083e9b325fea8a","options":"num_ctx:40960\ntemperature:0.2"}
+{
+  "apiKeyEncrypted" : "m5YocVqkyla7IVk1wgITcQ==",
+  "options" : "num_ctx:40960\ntemperature:0.2",
+  "ifInUse" : false
+}

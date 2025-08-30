@@ -10,9 +10,9 @@
   "observePrompt" : "请根据用户提出的问题、推理步的信息需求、行动步的输出结果，核实行动步的输出结果是否与推理步需求相关，并剔除无关的内容。\n                           在此基础上，重新总结、整理、编排与补全推理步需要的相关信息，并对行动步的行动结果给出评价。\n                           注意：总结的推理步信息应当尽量详细，如果您自己知道相关内容，可以如实进行补充；如果您不知道相关信息，不要编造和杜撰。\n                           \n                           相关信息输入如下：\n                           {\n                           \"用户问题\":\"${question}\",\n                           \"推理步的输出结果\":\"${reasoningResult}\",\n                           \"行动步的输出结果\":\"${actResult}\"\n                           }\n                           \n                         分析结果请以如下JSON格式返回：\n                         {\n                         \"行动步信息提炼结果\":\"从行动步的输出结果中所提炼的推理步需要的详细信息\",\n                         \"对行动步结果的评价\":\"评价行动步的输出结果能否对满足推理步的信息需求，以及仍存在的主要问题。\"\n                         }\n\n\t",
   "reasoningLLM" : "YiShape",
   "actLLM" : "YiShape",
-  "observeLLM" : "YiShape",
+  "observeLLM" : "DeepSeek",
   "textDbs" : [ "" ],
-  "tools" : [ "WebSearch", "LocalTime", "Address" ],
+  "tools" : [ "WebSearch", "LocalTime", "Address", "Weather" ],
   "genTime" : 1741099374013,
   "ord" : 1
 }

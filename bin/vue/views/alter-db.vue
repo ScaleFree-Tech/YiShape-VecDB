@@ -162,8 +162,8 @@
                     </div>
 
                     <el-form-item label="大模型挂载">
-                        <el-select v-model="form.llmType" placeholder="选择挂载的大模型">
-                            <el-option v-for="item in llms" :key="item.value" :label="item.label" :value="item.value" />
+                        <el-select v-model="form.modelExpr" placeholder="选择挂载的大模型">
+                            <el-option v-for="item in llms" :key="item.modelExpr" :label="item.modelExpr" :value="item.modelExpr" />
                         </el-select>
                     </el-form-item>
                     <el-form-item label="大模型生成模式">
@@ -200,7 +200,7 @@
                     </el-form-item>
                     <div class="errorMsg">
                         <el-text size="small" type="info">
-                            当前仅有YiShape、DeepSeek大模型支持思维链，流式返回结果时无法取消思维链
+                            当前仅有DeepSeek、Qwen、YiShape大模型支持思维链
                         </el-text>
                     </div>
 
@@ -260,6 +260,7 @@ const AlterDb = {
             this.checkDataSource();
             this.checkNickName();
         }
+        this.loadLLMModels();
 
     },
     data() {
@@ -278,7 +279,7 @@ const AlterDb = {
                 embeddingMethod: 'DistillBert',
                 wordDocTransMethod: 'TF_IDF',
                 vectorIndexType: 'Flat',
-                llmType: 'ChatGLM4',
+                modelExpr: 'DeepSeek',
                 sysPrompt: '你是一个检索增强生成器，你将根据本地检索得到的和问题相关的答案重新汇总组织语言、提炼和问题相关的信息、补充缺失的信息，最后回答问题。如果本地检索得到的内容和问题无关，则无需参考，自行回答。',
                 userPrompt: '请根据提供的上下文信息、补充缺失的信息，并回答问题，一般不少于200字。如果上下文信息中没有所需答案，请自行回答。如果上下文信息与问题无关，则无需参考上下文信息，并自行回答。上下文信息：<context>${context}</context>，问题: ${query}',
                 desc: '',
@@ -296,7 +297,7 @@ const AlterDb = {
             },
             stats: [{ value: 'RUNNING', label: '运行' },
             { value: 'STOPPED', label: '停止' }],
-            llms: getRAGLLMTypes(),
+            llms: [],
             pathTypes: [{ value: 'RELATIVE', label: '相对路径' },
             { value: 'ABSOLUTE', label: '绝对路径' }],
             chunkReturnTypes: [{ value: 'original', label: '原始文本块' },
@@ -305,7 +306,8 @@ const AlterDb = {
             { value: 'AVERAGE', label: '句向量为词向量的平均值' }],
             vectorIndexTypes: [
                 { value: 'Flat', label: 'Flat（扁平索引，不消耗内存，无需构建但查询速度一般）' },
-                { value: 'HNSW', label: 'HNSW（层次导航小世界索引，消耗一定内存，构建慢但查询快）' }
+                { value: 'HNSW', label: 'HNSW（层次导航小世界，消耗大量内存，构建慢但查询极快）'},
+                { value: 'E2LSH', label: 'E2LSH（局部敏感哈希，消耗少量内存，适用超大规模数据）' },
             ],
             questionTypes: [
                 { value: 'LLM_PARSED', label: '大模型解析检索问题' },
@@ -371,8 +373,18 @@ const AlterDb = {
                 }
             }
         },
+        loadLLMModels() {
+                    let url = "/llm/get_all/text";
+                    axios.get(url).then((response) => {
+                        this.llms = response.data;
+                        if (this.llms.length > 0 && this.db == null) {
+                            this.form.modelExpr = this.llms[0].modelExpr;
+                        }
+                        console.log(this.llms);
+                    });
+        },
         onSubmit() {
-            let url = "/api/alter_db";
+            let url = "/api/alter_text_db";
             console.log("data:" + JSON.stringify(this.form));
             axios.post(url, this.form, {
                 headers: {
@@ -389,7 +401,7 @@ const AlterDb = {
 
         },
         fetchDbData(db) {
-            let url = "/api/db_detail/" + db;
+            let url = "/api/text_db_detail/" + db;
             // let url = helper.getServiceApiAddr() + "api/db_detail/" + db;
             axios.get(url).then((response) => {
                 this.form = response.data;

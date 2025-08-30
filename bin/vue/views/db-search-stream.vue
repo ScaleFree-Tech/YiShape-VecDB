@@ -42,10 +42,10 @@
                             <el-icon :style="iconStyle">
                                 <Timer />
                             </el-icon>
-                            大模型类型
+                            大模型挂载
                         </div>
                     </template>
-                    {{ form.llmType }}
+                    {{ form.modelExpr }}
                 </el-descriptions-item>
 
                 <el-descriptions-item>
@@ -281,6 +281,7 @@ const DbSearchStreamX = {
         if (this.db != null) {
             this.fetchDbData(this.db);
         }
+        this.sessionId = generateUUID();
         // 动态加载KaTeX
         const loadKaTeX = () => {
             return loadKatexInstance();
@@ -362,7 +363,7 @@ const DbSearchStreamX = {
             location.href = ("/mag/list_db")
         },
         fetchDbData() {
-            let url = "/api/db_detail/" + this.db;
+            let url = "/api/text_db_detail/" + this.db;
             axios.get(url).then((response) => {
                 this.form = response.data;
                 this.k = this.form.defaultK;
@@ -433,6 +434,7 @@ const DbSearchStreamX = {
             console.log(JSON.stringify(this.history))
             this.result2 = {};
             let params = {
+                "session_id":this.sessionId,
                 "model": this.form.llmType,
                 "query": this.query2,
                 "db": this.db,
@@ -501,6 +503,7 @@ const DbSearchStreamX = {
             this.result3 = {};
             this.tempRAG = "";
             let params = {
+                "session_id":this.sessionId,
                 "query": this.query3,
                 "k": this.k,
                 "db": this.db,

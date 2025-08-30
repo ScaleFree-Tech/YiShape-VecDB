@@ -52,8 +52,8 @@
                                     </p>
 
                                     <div style="text-align: center;width:100%;">
-                                        <el-link href="#" type="info" title="" disabled>
-                                            敬请期待 >
+                                        <el-link href="#" type="info" title="" @click="this.testWeather()">
+                                            马上使用 >
                                         </el-link>
                                     </div>
                                 </div>
@@ -146,8 +146,8 @@
         </div>
 
 
-        <el-dialog v-model="dialogVisible" title="查询结果" width="400" :before-close="handleClose" style="text-align: left;">
-            <span>{{ message }}</span>
+        <el-dialog v-model="dialogVisible" title="查询结果" width="800" :before-close="handleClose" style="text-align: left;">
+            <div v-html="message" style="line-height: 1.6; font-family: 'Microsoft YaHei', sans-serif;"></div>
             <template #footer>
                 <div class="dialog-footer">
                     <el-button type="primary" @click="dialogVisible = false">
@@ -174,6 +174,7 @@ const ListAgentTool = {
             dialogVisible:false,
             localTime: '',
             address: {},
+            weather: {},
         };
     },
     methods: {
@@ -184,7 +185,7 @@ const ListAgentTool = {
             this.dialogVisible = true;
             axios.get(url).then((response) => {
                 this.address = response.data;
-                this.message = this.address.address;
+                this.message = this.address;
                 // console.log(response.data);
             });
         },
@@ -197,6 +198,79 @@ const ListAgentTool = {
                 this.message = this.localTime;
                 // console.log(response.data);
             });
+        },
+
+        testWeather() {
+            let url = "/api/weather";
+            this.dialogVisible = true;
+            
+            // 先获取地址信息，然后在回调中获取天气信息
+            axios.get("/api/local_address").then((addressResponse) => {
+                this.address = addressResponse.data;
+                let rs = this.address.split("-");
+                let city = rs[rs.length - 1];
+                console.log(city);
+                
+                let params = {
+                    "city": city,
+                    "days": 3
+                }
+                
+                return axios.post(url, params, {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                });
+            }).then((weatherResponse) => {
+                this.weather = weatherResponse.data;
+                console.log(this.weather)
+                this.message = this.formatWeatherData(this.weather);
+            }).catch((error) => {
+                console.error('获取天气信息失败:', error);
+                this.message = '获取天气信息失败，请稍后重试';
+            });
+        },
+
+        formatWeatherData(weatherData) {
+            if (!weatherData || weatherData.status !== 'ok') {
+                return '获取天气信息失败';
+            }
+
+            let html = `<div style="text-align: center; margin-bottom: 15px;"><b style="font-size: 16px; color: #409eff;">🌟 ${weatherData.city} 天气及未来2天预报</b></div>`;
+            
+            if (weatherData.items && weatherData.items.length > 0) {
+                html += '<table style="width:100%; border-collapse: collapse; font-size: 14px;">';
+                html += '<thead><tr style="background-color: #f5f7fa;">';
+                html += '<th style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">📅 日期</th>';
+                html += '<th style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">🌡️ 温度</th>';
+                html += '<th style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">☀️ 白天</th>';
+                html += '<th style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">🌙 夜间</th>';
+                html += '<th style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">💨 风向/风力</th>';
+                html += '<th style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">💧 湿度</th>';
+                html += '<th style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">🌅 日出</th>';
+                html += '<th style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">🌆 日落</th>';
+                html += '<th style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">🌙 月相</th>';
+                html += '</tr></thead><tbody>';
+                
+                weatherData.items.forEach((item, index) => {
+                    const rowStyle = index % 2 === 0 ? 'background-color: #ffffff;' : 'background-color: #fafafa;';
+                    html += `<tr style="${rowStyle}">`;
+                    html += `<td style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">${item.fxDate}</td>`;
+                    html += `<td style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">${item.tempMin}°C~${item.tempMax}°C</td>`;
+                    html += `<td style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">${item.textDay}</td>`;
+                    html += `<td style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">${item.textNight}</td>`;
+                    html += `<td style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">${item.windDirDay}${item.windScaleDay}级</td>`;
+                    html += `<td style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">${item.humidity}%</td>`;
+                    html += `<td style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">${item.sunrise}</td>`;
+                    html += `<td style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">${item.sunset}</td>`;
+                    html += `<td style="padding: 8px; border: 1px solid #dcdfe6; text-align: center;">${item.moonPhase}</td>`;
+                    html += '</tr>';
+                });
+                
+                html += '</tbody></table>';
+            }
+            
+            return html;
         },
 
 

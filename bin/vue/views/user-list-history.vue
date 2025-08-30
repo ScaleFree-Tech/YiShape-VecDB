@@ -26,6 +26,14 @@
                             <el-icon :size="20"><Clock /></el-icon>
                             <span>最近会话记录</span>
                         </div>
+                        <el-button 
+                            type="danger" 
+                            size="small"
+                            :disabled="recentSessions.length === 0"
+                            @click="clearAllSessions"
+                        >
+                            清除全部
+                        </el-button>
                     </div>
                 </template>
                 <div class="timeline-container">
@@ -354,6 +362,40 @@ const UserListHistory = {
                     });
             }).catch(() => {
                 // 用户取消删除操作
+            });
+        },
+        clearAllSessions() {
+            this.$msgbox({
+                message: `确定要清除全部 ${this.recentSessions.length} 条会话记录吗？此操作不可恢复。`,
+                title: '警告',
+                confirmButtonText: '确定清除',
+                cancelButtonText: '取消',
+                showCancelButton: true,
+                type: 'warning',
+                confirmButtonClass: 'el-button--danger'
+            }).then(() => {
+                console.log("清除全部会话记录");
+                // 清空数据库中的所有会话记录
+                this.db.chatHistory
+                    .clear()
+                    .then(() => {
+                        // 清空本地数组
+                        this.recentSessions = [];
+                        
+                        this.$message({
+                            type: 'success',
+                            message: '所有会话记录已清除'
+                        });
+                    })
+                    .catch(error => {
+                        console.error('清除会话记录失败:', error);
+                        this.$message({
+                            type: 'error',
+                            message: '清除会话记录失败'
+                        });
+                    });
+            }).catch(() => {
+                // 用户取消清除操作
             });
         }
     },

@@ -34,7 +34,7 @@
 
                     <el-form-item label="推理步大模型">
                         <el-select v-model="agent.reasoningLLM" placeholder="选择挂载的大模型">
-                            <el-option v-for="item in llms" :key="item.value" :label="item.label" :value="item.value" />
+                            <el-option v-for="item in llms" :key="item.modelExpr" :label="item.modelExpr" :value="item.modelExpr" />
                         </el-select>
                     </el-form-item>
 
@@ -44,7 +44,7 @@
 
                     <el-form-item label="观察步大模型">
                         <el-select v-model="agent.observeLLM" placeholder="选择挂载的大模型">
-                            <el-option v-for="item in llms" :key="item.value" :label="item.label" :value="item.value" />
+                            <el-option v-for="item in llms" :key="item.modelExpr" :label="item.modelExpr" :value="item.modelExpr" />
                         </el-select>
                     </el-form-item>
 
@@ -91,6 +91,7 @@ const AlterReActAgent = {
         if (this.agent_id != null) {
             this.fetchAgentData(this.agent_id);
         }
+        this.loadLLMModels();
         // console.log(this.$javalin.pathParams);
     },
     data() {
@@ -106,8 +107,8 @@ const AlterReActAgent = {
                 userInstruction: '',
                 reasonPrompt: getReActReasoningPrompt(),
                 observePrompt: getReActObservePrompt(),
-                reasoningLLM: 'YiShape',
-                observeLLM: 'YiShape',
+                reasoningLLM: 'DeepSeek',
+                observeLLM: 'DeepSeek',
                 textDbs: [],
                 tools: [],
                 genTime: '',
@@ -116,13 +117,21 @@ const AlterReActAgent = {
             dbs: [],
             tools: [
                 { name: 'WebSearch', nickName: '互联网搜索引擎' },
+                { name: 'Weather', nickName: '查询未来几天的天气' },
                 { name: 'LocalTime', nickName: '当前时间计算' },
                 { name: 'Address', nickName: '当前地址计算' },
             ],
-            llms: getRAGLLMTypes(),
+            llms: [],
         }
     },
     methods: {
+        loadLLMModels() {
+                    let url = "/llm/get_all/text";
+                    axios.get(url).then((response) => {
+                        this.llms = response.data;
+                        console.log(this.llms);
+                    });
+        },
         gotoList() {
             location.href = ("/mag/list_react_agent")
         },
@@ -175,7 +184,7 @@ const AlterReActAgent = {
             });
         },
         fetchDBData() {
-            let url = "/api/list_db";
+            let url = "/api/list_text_db";
             // let url = helper.getServiceApiAddr() + "api/db_detail/" + db;
             axios.get(url).then((response) => {
                 this.dbs = response.data.goodDbs;

@@ -19,9 +19,18 @@
             </el-text>
           </el-tooltip>
           <div style="float: right;border:0px solid green;height: 50px;padding-top: 35px;line-height: 30px;">
+            <el-text style="vertical-align: bottom;;" size="small">管理员：</el-text>
+            <el-text :type="ifLogin ? 'primary' : 'warning'" size="small">{{ admin.nickName }}（{{ admin.username }}）</el-text>
+            &nbsp;&nbsp;
+            <el-link href="/admin_logout" type="primary" title="退出登录" v-if="ifLogin">
+              <el-text type="primary" size="small">
+                退出登录
+              </el-text>
+            </el-link>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <el-text style="vertical-align: bottom;;" size="small">当前计算设备：</el-text>
             <el-text :type="ifGPU ? 'success' : 'warning'" tag="b" size="small">{{ ifGPU ? 'GPU' : 'CPU' }}</el-text>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <el-link href="/user" target="_blank" type="primary" title="打开用户工作台">
               <el-text type="primary" size="small">
                 YiShape Studio
@@ -109,9 +118,9 @@
             -->
             <el-menu-item index="alter_ollama" onclick="location.href ='/mag/alter_ollama'">Ollama</el-menu-item>
             <el-menu-item index="alter_deepseek" onclick="location.href ='/mag/alter_deepseek'">DeepSeek</el-menu-item>
-
-            <el-menu-item index="alter_chat_glm4"
-              onclick="location.href ='/mag/alter_chat_glm4'">ChatGLM4</el-menu-item>
+            <el-menu-item index="alter_qwen" onclick="location.href ='/mag/alter_qwen'">Qwen</el-menu-item>
+            <el-menu-item index="alter_kimi" onclick="location.href ='/mag/alter_kimi'">Kimi</el-menu-item>
+            <el-menu-item index="alter_chat_glm" onclick="location.href ='/mag/alter_chat_glm'">ChatGLM</el-menu-item>
 
 
             <el-menu-item index="llm_test" onclick="location.href ='/mag/llm_test'">大模型测试</el-menu-item>
@@ -127,7 +136,8 @@
             <!--
             <el-menu-item index="31">向量字典</el-menu-item>
             -->
-            <el-menu-item index="api_doc" onclick="location.href ='/mag/doc_detail/api_doc'">API调用</el-menu-item>
+            <el-menu-item index="alter_api_key" onclick="location.href ='/mag/alter_api_key'">API KEY</el-menu-item>
+            <el-menu-item index="api_doc" onclick="location.href ='/mag/doc_detail/api/api_doc'">API调用</el-menu-item>
             <el-menu-item index="mobile_app" onclick="location.href ='#'">移动App（开发中）</el-menu-item>
           </el-sub-menu>
 
@@ -141,6 +151,7 @@
             <!--
             <el-menu-item index="31">向量字典</el-menu-item>
             -->
+            <el-menu-item index="alter_admin_config" onclick="location.href ='/mag/alter_admin_config'">管理员设置</el-menu-item>
             <el-menu-item index="alter_config" onclick="location.href ='/mag/alter_config'">系统设置</el-menu-item>
             <el-menu-item index="doc_detail" onclick="location.href ='/mag/doc_detail/main'">使用文档</el-menu-item>
           </el-sub-menu>
@@ -183,6 +194,8 @@ const AppFrame = {
       activeIndex: this.getActive(),
       copyright: getCopyrightInfo(),
       ifGPU: false,
+      admin: {username: 'admin', nickName: '管理员'},
+      ifLogin: false,
     };
   },
   methods: {
@@ -198,6 +211,12 @@ const AppFrame = {
                 let info = response.data;
                 this.ifGPU = info.gpuNum>0;
                 // console.log(this.ifGPU);
+            });
+            let url2 = "/api/get_login_admin";
+            axios.get(url2).then((response) => {
+                let as = response.data;
+                this.admin = as.admin;
+                this.ifLogin = as.ifLogin;
             });
         },
   },

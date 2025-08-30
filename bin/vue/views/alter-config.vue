@@ -109,7 +109,7 @@ const AlterConfig = {
     methods: {
         gotoList() {
             console.log("ready goto")
-            location.href = ("/mag/list_db")
+            location.href = ("/mag/")
             // this.$router.push({ path: '/list_db' })
         },
         onSubmit() {

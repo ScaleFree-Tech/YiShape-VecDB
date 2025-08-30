@@ -34,8 +34,34 @@
                         <el-text class="label-text">当前挂载模型</el-text>
                     </div>
                     <el-select v-model="this.llmType" placeholder="选择大模型" class="model-select" size="default">
-                        <el-option v-for="item in llms" :key="item.value" :label="item.label" :value="item.value" />
+                        <el-option v-for="item in llms" :key="item.modelExpr" :label="item.modelExpr" :value="item.modelExpr" />
                     </el-select>
+                </div>
+<!--
+                <div class="model-selection-content">
+                    <div class="selection-label">
+                        <el-text class="label-text">生成方式</el-text>
+                    </div>
+                    <el-select v-model="this.generateType" placeholder="选择生成方式" class="model-select" size="default">
+                        <el-option v-for="gt in generateTypes" :key="gt.value" :label="gt.label" :value="gt.value" />
+                    </el-select>
+                </div>
+            -->
+                <div class="model-selection-content">
+                    <div class="selection-label">
+                        <el-text class="label-text">是否开启深度思考</el-text>
+                        <el-tooltip content="深度思考功能仅适用于Qwen和DeepSeek模型" placement="top" effect="light">
+                            <el-icon class="info-icon">
+                                <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor">
+                                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z" />
+                                </svg>
+                            </el-icon>
+                        </el-tooltip>
+                    </div>
+                    <el-switch v-model="this.ifThink" :disabled="!isThinkSupported()" />
+                    <div v-if="!isThinkSupported()" class="feature-tip">
+                        <el-text type="info" size="small">当前模型不支持深度思考功能</el-text>
+                    </div>
                 </div>
             </div>
 
@@ -163,10 +189,12 @@
             <div id="msgsDiv" class="chat-messages">
                 <div v-for="msg in this.messages" :key="msg.id"
                     :class="msg.sender == 'ChatBot' ? 'message' : 'message user'">
-                    <img v-if="msg.sender == 'ChatBot' && llmType == 'YiShape'" src="/images/bot2.webp" />
-                    <img v-if="msg.sender == 'ChatBot' && llmType == 'DeepSeek'" src="/images/deepseek.jpg" />
-                    <img v-if="msg.sender == 'ChatBot' && llmType == 'Ollama'" src="/images/ollama2.png" />
-                    <img v-if="msg.sender == 'ChatBot' && llmType == 'ChatGLM4'" src="/images/chatglm4.png" />
+                    <img v-if="msg.sender == 'ChatBot' && llmType.startsWith('YiShape')" src="/images/bot2.webp" />
+                    <img v-if="msg.sender == 'ChatBot' && llmType.startsWith('DeepSeek')" src="/images/deepseek.jpg" />
+                    <img v-if="msg.sender == 'ChatBot' && llmType.startsWith('Ollama')" src="/images/ollama2.png" />
+                    <img v-if="msg.sender == 'ChatBot' && llmType.startsWith('ChatGLM')" src="/images/chatglm4.png" />
+                    <img v-if="msg.sender == 'ChatBot' && llmType.startsWith('Qwen')" src="/images/qwen.png" />
+                    <img v-if="msg.sender == 'ChatBot' && llmType.startsWith('Kimi')" src="/images/kimi.jfif" />
                     <div v-if="msg.sender == 'ChatBot'" class="message-content"
                         v-html="this.replaceLnWithBr(msg.content)">
                     </div>
@@ -196,7 +224,7 @@
 const UserLLMSession = {
     // 组件挂载时执行
     mounted() {
-
+        this.loadLLMModels();
 
         // 获取URL中的LLM类型参数
         let tt = this.$javalin.pathParams["llmType"];
@@ -236,8 +264,11 @@ const UserLLMSession = {
         return {
             ifRestore: false, // 是否恢复会话
             query: "", // 用户输入的查询内容
-            llms: getRAGLLMTypes(), // 获取可用的LLM模型列表
+            llms: [], // 获取可用的LLM模型列表
             llmType: "DeepSeek", // 当前选择的LLM类型
+            ifThink:false,// 是否开启思考
+            generateType:"Chat",// 生成类型:Chat,Generate
+            generateTypes:[{value:"Chat",label:"聊天式"},{value:"Generate",label:"生成式"}],// 生成类型:Chat,Generate
             history: [], // 对话历史记录
             messages: [ // 消息列表
                 { id: 1, sender: 'ChatBot', content: '您好！有什么可以帮助您的吗？' }
@@ -269,6 +300,8 @@ const UserLLMSession = {
                             console.log(record);
                             // 恢复历史记录和消息
                             this.llmType = record.llmType;
+                            this.generateType = record.generateType || "Chat";  
+                            this.ifThink = record.ifThink || false;
                             this.history = JSON.parse(record.history) || [];
                             this.messages = JSON.parse(record.messages) || [
                                 { id: 1, sender: 'ChatBot', content: '您好！有什么可以帮助您的吗？' }
@@ -367,7 +400,16 @@ const UserLLMSession = {
                 // console.log(this.sessionId);
             }).catch(() => { });
         },
-
+        loadLLMModels() {
+                    let url = "/llm/get_all/text";
+                    axios.get(url).then((response) => {
+                        this.llms = response.data;
+                        if (this.llms.length > 0) {
+                            this.llmType = this.llms[0].modelExpr;
+                        }
+                        console.log(this.llms);
+                    });
+        },
         sendMessage() {
             if (this.query.trim() == '') {
                 this.checkQuery(this.query);
@@ -391,6 +433,8 @@ const UserLLMSession = {
                 "session_id": this.sessionId,
                 "model": this.llmType,
                 "query": this.query,
+                "generate_type": this.generateType,
+                "if_think": this.ifThink,
                 "history": JSON.stringify(this.getRecentHistory()),
             }
             let url = "/websocket/llm";
@@ -480,6 +524,8 @@ const UserLLMSession = {
                 type: 'LLM',
                 llmType: this.llmType,
                 db: '',
+                generateType: this.generateType,
+                ifThink: this.ifThink,
                 history: JSON.stringify(this.history),
                 messages: JSON.stringify(this.messages),
                 uploadFiles: JSON.stringify(uploadFilesInfo), // 保存上传文件信息
@@ -672,6 +718,11 @@ const UserLLMSession = {
             }
         },
 
+        isThinkSupported() {
+            // 检查当前模型是否支持深度思考功能
+            return this.llmType && (this.llmType.includes('Qwen') || this.llmType.includes('DeepSeek'));
+        },
+
     },
     template: "#user-llm-session"
 };
@@ -788,12 +839,34 @@ app.component("user-llm-session", UserLLMSession);
 
 .selection-label {
     margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .label-text {
     font-size: 13px;
     color: #666;
     font-weight: normal;
+}
+
+.info-icon {
+    color: #909399;
+    font-size: 14px;
+    cursor: help;
+    transition: color 0.2s ease;
+}
+
+.info-icon:hover {
+    color: #409EFF;
+}
+
+.feature-tip {
+    margin-top: 6px;
+    padding: 4px 8px;
+    background-color: #f0f9ff;
+    border-radius: 4px;
+    border-left: 3px solid #409EFF;
 }
 
 .model-select {

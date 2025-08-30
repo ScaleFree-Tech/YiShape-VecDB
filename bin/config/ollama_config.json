@@ -1,8 +1,13 @@
 {
-  "name" : "ollama",
-  "ipAddr" : "10.10.0.7",
-  "port" : 11434,
-  "model" : "qwen3:32b",
-  "options" : "num_ctx:40960\ntemperature:0.2",
-  "models" : [ ]
+  "models" : [ {
+    "id" : "ollama-1bb5398a-78b7-4d07-bcfa-cb1e8b793f88",
+    "ipAddr" : "10.10.0.3",
+    "port" : 11434,
+    "model" : "qwen2.5vl:7b ",
+    "modelType" : "Vision",
+    "options" : "",
+    "ifInUse" : true,
+    "ord" : 0,
+    "genTime" : 1752236895428
+  } ]
 }

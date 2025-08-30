@@ -28,8 +28,8 @@
                     </el-form-item>
 
                     <el-form-item label="大模型挂载">
-                        <el-select v-model="task.llmType" placeholder="选择挂载的大模型">
-                            <el-option v-for="item in llms" :key="item.value" :label="item.label" :value="item.value" />
+                        <el-select v-model="task.modelExpr" placeholder="选择挂载的大模型">   
+                            <el-option v-for="item in llms" :key="item.modelExpr" :label="item.modelExpr" :value="item.modelExpr" />
                         </el-select>
                     </el-form-item>
 
@@ -63,7 +63,7 @@
 
                     <el-form-item>
                         <el-button type="primary" @click="onSubmit"
-                            :disabled="task.name == '' || task.dbName == ''">提交</el-button>
+                            :disabled="task.name == '' || task.dbName == '' || task.modelExpr == ''">提交</el-button>
                         <el-button @click="gotoList()">取消</el-button>
                     </el-form-item>
                 </el-form>
@@ -84,6 +84,7 @@ const AlterChunkTask = {
             this.fetchTaskData(this.task_id);
         }
         this.fetchDBData();
+        this.loadLLMModels();
         // console.log(this.$javalin.pathParams);
     },
     data() {
@@ -94,18 +95,28 @@ const AlterChunkTask = {
                 name: '',
                 dbName: '',
                 outputPath: 'D:\\test',
-                llmType: 'Ollama',
+                modelExpr: '',
                 sysPrompt: getDefaultChunkTaskSysPrompt(),
                 userPrompt: getDefaultChunkTaskUserPrompt(),
                 desc: '',
             },
-            llms: getTaskLLMTypes(),
+            llms: [],
             prompts: getExamplePrompts(),
             promptName: '',
             dbs: [],
         }
     },
     methods: {
+        loadLLMModels() {
+                    let url = "/llm/get_all/batch";
+                    axios.get(url).then((response) => {
+                        this.llms = response.data;
+                        if (this.llms.length > 0 && this.task_id == null) {
+                            this.task.modelExpr = this.llms[0].modelExpr;
+                        }
+                        console.log(this.llms);
+                    });
+        },
         changePrompt() {
             let prompt = this.prompts.find(item => item.name == this.promptName);
             this.task.sysPrompt = prompt.systemPrompt.trim();
@@ -141,7 +152,7 @@ const AlterChunkTask = {
             });
         },
         fetchDBData() {
-            let url = "/api/list_db";
+            let url = "/api/list_text_db";
             // let url = helper.getServiceApiAddr() + "api/db_detail/" + db;
             axios.get(url).then((response) => {
                 this.dbs = response.data.goodDbs;

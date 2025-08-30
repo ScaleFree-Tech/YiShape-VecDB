@@ -20,8 +20,8 @@
                         <div style="font-size: 10pt;text-align: left;">
                             <el-text>大模型挂载：</el-text>
                             <el-select v-model="this.llmType" placeholder="选择挂载的大模型" style="width:200px;">
-                                <el-option v-for="item in llms" :key="item.value" :label="item.label"
-                                    :value="item.value" />
+                                <el-option v-for="item in llms" :key="item.modelExpr" :label="item.modelExpr"
+                                    :value="item.modelExpr" />
                             </el-select>&nbsp;&nbsp;&nbsp;
                             <el-link type="primary" :href="'/user/user_llm_session/'+this.llmType" target="_blank">打开会话窗口</el-link>
                             <hr/>
@@ -50,7 +50,7 @@
 <script>
 const LLMTest = {
     mounted() {
-
+        this.loadLLMModels();
     },
     data() {
         return {
@@ -59,7 +59,7 @@ const LLMTest = {
             result: {},
             loading: false,
             currentQuery: '',
-            llms: getRAGLLMTypes(),
+            llms: [],
             llmType: 'DeepSeek',
         }
     },
@@ -75,6 +75,16 @@ const LLMTest = {
         gotoList() {
             console.log("ready goto")
             location.href = ("/mag/")
+        },
+        loadLLMModels() {
+                    let url = "/llm/get_all/text";
+                    axios.get(url).then((response) => {
+                        this.llms = response.data;
+                        if (this.llms.length > 0) {
+                            this.llmType = this.llms[0].modelExpr;
+                        }
+                        console.log(this.llms);
+                    });
         },
         checkQuery(query) {
             // console.log(_MessageBox);

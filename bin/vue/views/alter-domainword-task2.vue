@@ -122,7 +122,7 @@ const AlterDomainwordTask2 = {
             });
         },
         fetchDBData() {
-            let url = "/api/list_db";
+            let url = "/api/list_text_db";
             // let url = helper.getServiceApiAddr() + "api/db_detail/" + db;
             axios.get(url).then((response) => {
                 this.dbs = response.data.goodDbs;

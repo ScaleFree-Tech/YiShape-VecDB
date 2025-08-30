@@ -169,3 +169,32 @@ function getExamplePrompts() {
 }
 
 
+function getImageAnalysisExamples() {
+	let imgs=[
+	{'name':'图像描述',
+	'image':`/images/examples/pic2.jpg`,
+	'prompt': `请描述图片中的内容`
+	},
+	{'name':'车牌识别',
+	'image':`/images/examples/car1.jpg`,
+	'prompt':
+	`
+请识别图片中的车牌和车牌的颜色，并以如下JSON格式返回：
+\`\`\`json
+{
+	'车牌':'xxx',
+	'颜色':'xx'
+}
+\`\`\`
+	`},
+	{'name':'光学字符识别（OCR）',
+	'image':`/images/examples/invoice2.jpg`,
+	'prompt':`请识别图片中的内容，保留图片中的信息结构，并以MARKDOWN格式返回`
+	}
+	
+	
+	];
+	
+	
+	return imgs;
+}

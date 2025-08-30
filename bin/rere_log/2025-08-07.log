@@ -1,0 +1,49 @@
+01:10:02.065 [AWT-EventQueue-0] INFO  org.eclipse.jetty.server.Server - jetty-11.0.25; built: 2025-03-13T00:15:57.301Z; git: a2e9fae3ad8320f2a713d4fa29bba356a99d1295; jvm 24.0.1+9-30
+01:10:02.084 [AWT-EventQueue-0] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@43c8c434{/mcp/message,null,AVAILABLE}
+01:10:02.085 [AWT-EventQueue-0] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@33860a59{/servlet,null,AVAILABLE}
+01:10:02.098 [AWT-EventQueue-0] INFO  o.e.j.s.s.DefaultSessionIdManager - Session workerName=node0
+01:10:02.103 [AWT-EventQueue-0] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@31456a61{/,null,AVAILABLE}
+01:10:02.440 [AWT-EventQueue-0] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@43fedabf{HTTP/1.1, (http/1.1)}{0.0.0.0:7090}
+Defaulting Uptime to NOIMPL due to (java.lang.UnsupportedOperationException) Implementation not available in this environment
+01:10:02.443 [AWT-EventQueue-0] INFO  org.eclipse.jetty.server.Server - Started Server@4030d20f{STARTING}[11.0.25,sto=0] @-1ms
+01:10:06.898 [qtp1781406365-105] INFO  ai.djl.util.Platform - Found matching platform from: jar:file:/E:/work/yi_shape_v0.8/bin/libs/pytorch-native-cpu-2.5.1-win-x86_64.jar!/native/lib/pytorch.properties
+01:10:07.523 [qtp1781406365-105] INFO  ai.djl.pytorch.engine.PtEngine - PyTorch graph executor optimizer is enabled, this may impact your inference latency and throughput. See: https://docs.djl.ai/master/docs/development/inference_performance_optimization.html#graph-executor-optimization
+01:10:07.588 [qtp1781406365-105] INFO  ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 14
+01:10:07.588 [qtp1781406365-105] INFO  ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 14
+01:10:39.264 [qtp1781406365-84] INFO  c.r.v.a.react.RereReActAgentService - 加载了1个ReAct配置
+01:10:54.005 [qtp1781406365-108] INFO  c.r.v.a.react.RereReActAgentService - 加载了1个ReAct配置
+01:11:01.626 [AWT-EventQueue-0] INFO  c.r.rerecontainer.gui.RereTray - 正在退出应用程序...
+Weld SE container 6483df88-18d2-4af0-8eba-e9ebbe4d1ae2 shut down by shutdown hook
+23:02:19.642 [AWT-EventQueue-0] INFO  org.eclipse.jetty.server.Server - jetty-11.0.25; built: 2025-03-13T00:15:57.301Z; git: a2e9fae3ad8320f2a713d4fa29bba356a99d1295; jvm 24.0.1+9-30
+23:02:19.659 [AWT-EventQueue-0] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@33860a59{/mcp/message,null,AVAILABLE}
+23:02:19.660 [AWT-EventQueue-0] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@1b586606{/servlet,null,AVAILABLE}
+23:02:19.673 [AWT-EventQueue-0] INFO  o.e.j.s.s.DefaultSessionIdManager - Session workerName=node0
+23:02:19.679 [AWT-EventQueue-0] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@6ffa5009{/,null,AVAILABLE}
+23:02:19.923 [AWT-EventQueue-0] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@146968e9{HTTP/1.1, (http/1.1)}{0.0.0.0:7090}
+Defaulting Uptime to NOIMPL due to (java.lang.UnsupportedOperationException) Implementation not available in this environment
+23:02:19.924 [AWT-EventQueue-0] INFO  org.eclipse.jetty.server.Server - Started Server@4a378751{STARTING}[11.0.25,sto=0] @-1ms
+23:02:25.071 [qtp1303620210-106] INFO  ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/2.5.1/cu124/win-x86_64/native/lib/zlibwapi.dll.gz ...
+23:02:26.351 [qtp1303620210-106] INFO  ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/2.5.1/cu124/win-x86_64/native/lib/cupti64_2024.1.0.dll.gz ...
+23:02:27.723 [qtp1303620210-106] INFO  ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/2.5.1/cu124/win-x86_64/native/lib/cudnn_ops64_9.dll.gz ...
+23:02:34.350 [qtp1303620210-106] INFO  ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/2.5.1/cu124/win-x86_64/native/lib/cudnn_cnn64_9.dll.gz ...
+23:02:34.655 [qtp1303620210-106] INFO  ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/2.5.1/cu124/win-x86_64/native/lib/torch.dll.gz ...
+23:02:34.840 [qtp1303620210-106] INFO  ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/2.5.1/cu124/win-x86_64/native/lib/cufftw64_11.dll.gz ...
+23:02:35.041 [qtp1303620210-106] INFO  ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/2.5.1/cu124/win-x86_64/native/lib/nvrtc64_120_0.dll.gz ...
+23:02:36.090 [qtp1303620210-106] INFO  ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/2.5.1/cu124/win-x86_64/native/lib/cusolverMg64_11.dll.gz ...
+23:02:38.946 [qtp1303620210-106] INFO  ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/2.5.1/cu124/win-x86_64/native/lib/torch_cuda.dll.gz ...
+23:02:43.970 [AWT-EventQueue-0] INFO  c.r.rerecontainer.gui.RereTray - 正在退出应用程序...
+Weld SE container 3344dccb-5cb4-488e-9d27-89800877fb88 shut down by shutdown hook
+23:03:19.414 [AWT-EventQueue-0] INFO  org.eclipse.jetty.server.Server - jetty-11.0.25; built: 2025-03-13T00:15:57.301Z; git: a2e9fae3ad8320f2a713d4fa29bba356a99d1295; jvm 24.0.1+9-30
+23:03:19.438 [AWT-EventQueue-0] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@11a0ae70{/mcp/message,null,AVAILABLE}
+23:03:19.440 [AWT-EventQueue-0] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@38a325e4{/servlet,null,AVAILABLE}
+23:03:19.454 [AWT-EventQueue-0] INFO  o.e.j.s.s.DefaultSessionIdManager - Session workerName=node0
+23:03:19.459 [AWT-EventQueue-0] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@491cebef{/,null,AVAILABLE}
+23:03:19.707 [AWT-EventQueue-0] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@1e5ab299{HTTP/1.1, (http/1.1)}{0.0.0.0:7090}
+Defaulting Uptime to NOIMPL due to (java.lang.UnsupportedOperationException) Implementation not available in this environment
+23:03:19.708 [AWT-EventQueue-0] INFO  org.eclipse.jetty.server.Server - Started Server@50dcc1d0{STARTING}[11.0.25,sto=0] @-1ms
+23:03:23.833 [qtp2111387534-101] INFO  ai.djl.util.Platform - Found matching platform from: jar:file:/E:/work/yi_shape_v0.8/bin/libs/pytorch-native-cpu-2.5.1-win-x86_64.jar!/native/lib/pytorch.properties
+23:03:24.470 [qtp2111387534-101] INFO  ai.djl.pytorch.engine.PtEngine - PyTorch graph executor optimizer is enabled, this may impact your inference latency and throughput. See: https://docs.djl.ai/master/docs/development/inference_performance_optimization.html#graph-executor-optimization
+23:03:24.485 [qtp2111387534-101] INFO  ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 14
+23:03:24.485 [qtp2111387534-101] INFO  ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 14
+23:03:40.003 [AWT-EventQueue-0] INFO  c.r.rerecontainer.gui.RereTray - 正在退出应用程序...
+Weld SE container e5f06da2-f038-4322-b278-50de0e4df254 shut down by shutdown hook

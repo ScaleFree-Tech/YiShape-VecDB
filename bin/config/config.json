@@ -5,12 +5,16 @@
   "dbStorageRoot" : "/db_data",
   "yishapeLLMUrl" : "http://test.wbdwl.com/",
   "webSearchUrl" : "http://test.wbdwl.com/",
+  "weatherUrl" : "http://test.wbdwl.com/",
   "pathType" : "RELATIVE",
   "word2vecFileCn" : "D:\\word_vectors\\renmin_300d_cn.vec",
   "word2vecFileEn" : "D:\\word_vectors\\glove.6B.300d_en.vec",
   "ifStartServerOnStartup" : true,
   "ifCheckAdmin" : false,
   "deepTextEmbeddingModel" : "msmarco-distilbert-dot-v5",
+  "imageEmbeddingModel" : "resnet_50_extract_features",
+  "faceEmbeddingModel" : "face_feature",
   "reRankerModel" : "ms-marco-MiniLM-L6-v2",
-  "ifReRankForWebSearch" : true
+  "ifReRankForWebSearch" : true,
+  "apiKey" : "sk-ymk5jOGlm+AH+5jWbH8p5IYiqTfsws/95hVnNM5MWMQ="
 }

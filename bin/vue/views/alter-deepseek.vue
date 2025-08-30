@@ -30,7 +30,18 @@
                         <el-link size = "small" type="warning" href="https://platform.deepseek.com/" target="_blank">
                             <el-text size="small" >DeepSeek官网参数说明文档</el-text></el-link>
                     </div>
-
+                    <el-form-item label="是否启用" prop="ifInUse">
+                        <el-switch 
+                            v-model="form.ifInUse" 
+                            active-text="启用" 
+                            inactive-text="禁用"
+                            :active-value="true"
+                            :inactive-value="false"
+                        />
+                        <div style="margin-top: 5px;">
+                            <el-text size="small" type="info">启用后该模型配置将可用于LLM服务</el-text>
+                        </div>
+                    </el-form-item>
                     <el-form-item>
                         <el-button type="primary" @click="onSubmit">提交</el-button>
                     </el-form-item>
@@ -56,6 +67,12 @@ const AlterDeepSeek = {
             form: {
                 apiKey: '',
                 options: '',
+                ifInUse: true,
+            },
+            originalForm: {
+                apiKey: '',
+                options: '',
+                ifInUse: true,
             },
             result: '',
         }
@@ -67,6 +84,17 @@ const AlterDeepSeek = {
             // this.$router.push({ path: '/list_db' })
         },
         onSubmit() {
+            // 检查是否有变更
+            const hasChanges = this.checkForChanges();
+            if (!hasChanges) {
+                this.$message({
+                    title: '提示',
+                    message: '信息未变更，无需提交！',
+                    type: 'info',
+                });
+                return;
+            }
+
             let url = "/api/alter_deepseek";
             axios.post(url, this.form, {
                 headers: {
@@ -80,16 +108,29 @@ const AlterDeepSeek = {
                     message: this.result == 'ok' ? '修改成功！' : '修改失败！',
                     type: this.result == 'ok' ? 'success' : 'error',
                 });
+                // 更新成功后，更新原始数据
+                if (this.result == 'ok') {
+                    this.originalForm = JSON.parse(JSON.stringify(this.form));
+                }
             }).catch((error) => {
                 console.log(error);
             });
 
+        },
+        checkForChanges() {
+            // 比较当前表单数据与原始数据
+            return this.form.apiKey !== this.originalForm.apiKey ||
+                   this.form.options !== this.originalForm.options ||
+                   this.form.ifInUse !== this.originalForm.ifInUse;
         },
         fetchData() {
             let url = "/api/llm_config/deepseek"
             // let url = helper.getServiceApiAddr() + "api/db_detail/" + db;
             axios.get(url).then((response) => {
                 this.form = response.data;
+                this.form.apiKey = "********";
+                // 保存原始数据用于比较
+                this.originalForm = JSON.parse(JSON.stringify(this.form));
                 // console.log(response.data);
             });
         }

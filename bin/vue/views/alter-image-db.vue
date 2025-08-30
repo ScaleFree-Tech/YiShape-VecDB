@@ -171,7 +171,8 @@ const AlterImageDb = {
             { value: 'ABSOLUTE', label: '绝对路径' }],
             vectorIndexTypes: [
                 { value: 'Flat', label: 'Flat（扁平索引，不消耗内存，无需构建但查询速度一般）' },
-                { value: 'HNSW', label: 'HNSW（层次导航小世界索引，消耗一定内存，构建慢但查询快）' }
+                { value: 'HNSW', label: 'HNSW（层次导航小世界，消耗大量内存，构建慢但查询极快）'},
+                { value: 'E2LSH', label: 'E2LSH（局部敏感哈希，消耗少量内存，适用超大规模数据）' },
             ],
             embeddingMethods: [
                 { value: 'ResNet50', label: 'ResNet50，适用于普通图像（向量长度：2048）' },

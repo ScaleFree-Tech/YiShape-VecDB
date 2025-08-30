@@ -1,0 +1,14 @@
+{
+  "defaultAdminUrn" : "admin",
+  "ifLoadDefaultAdmin" : true,
+  "admins" : [ {
+    "id" : "d37703e8-1eed-4ec6-bb74-545e10bb95d0",
+    "username" : "admin",
+    "password" : "123456",
+    "nickName" : "默认管理员",
+    "adminType" : "SuperAdmin",
+    "ifInUse" : true,
+    "ord" : 0,
+    "genTime" : 1755791166782
+  } ]
+}

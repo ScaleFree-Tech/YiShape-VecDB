@@ -50,7 +50,7 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">当前大模型挂载：</span>
-                        <span class="info-value">{{ this.form.llmType }}</span>
+                        <span class="info-value">{{ this.form.modelExpr }}</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">大模型生成模式：</span>
@@ -118,11 +118,13 @@
             <div id="msgsDiv" class="chat-messages">
                 <div v-for="(msg, i) in this.messages" :key="msg.id"
                     :class="msg.sender == 'ChatBot' ? 'message' : 'message user'">
-                    <img v-if="msg.sender == 'ChatBot' && form.llmType=='YiShape'" src="/images/bot2.webp" />
-                    <img v-if="msg.sender == 'ChatBot' && form.llmType=='DeepSeek'" src="/images/deepseek.jpg" />
-                    <img v-if="msg.sender == 'ChatBot' && form.llmType=='Ollama'" src="/images/ollama2.png" />
-                    <img v-if="msg.sender == 'ChatBot' && form.llmType=='ChatGLM4'" src="/images/chatglm4.png" />
-
+                    <img v-if="msg.sender == 'ChatBot' && form.modelExpr.startsWith('YiShape')" src="/images/bot2.webp" />
+                    <img v-if="msg.sender == 'ChatBot' && form.modelExpr.startsWith('DeepSeek')" src="/images/deepseek.jpg" />
+                    <img v-if="msg.sender == 'ChatBot' && form.modelExpr.startsWith('Ollama')" src="/images/ollama2.png" />
+                    <img v-if="msg.sender == 'ChatBot' && form.modelExpr.startsWith('ChatGLM')" src="/images/chatglm4.png" />
+                    <img v-if="msg.sender == 'ChatBot' && form.modelExpr.startsWith('Qwen')" src="/images/qwen.png" />
+                    <img v-if="msg.sender == 'ChatBot' && form.modelExpr.startsWith('Kimi')" src="/images/kimi.jfif" />
+                    
                     <div class="message-content" v-if="msg.sender == 'ChatBot'">
                         <div v-html="this.replaceLnWithBr(msg.content)" class=""></div>
 
@@ -236,7 +238,7 @@ const UserRAGSession = {
                 status: '',
                 type: '',
                 tempDataSourcePath: '',
-                llmType: '',
+                modelExpr: '',
                 llmPrompt: '',
                 desc: '',
                 genTime: '',
@@ -489,7 +491,7 @@ const UserRAGSession = {
 
 
         fetchDbData() {
-            let url = "/api/db_detail/" + this.db;
+            let url = "/api/text_db_detail/" + this.db;
             axios.get(url).then((response) => {
                 this.form = response.data;
                 this.k = this.form.defaultK;

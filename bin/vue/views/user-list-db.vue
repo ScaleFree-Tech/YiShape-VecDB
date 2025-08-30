@@ -47,7 +47,7 @@
                                         大模型挂载
                                     </div>
                                 </template>
-                                {{ db.llmType }}
+                                {{ db.modelExpr }}
                             </el-descriptions-item>
                             <el-descriptions-item>
                                 <template #label>
@@ -106,7 +106,7 @@ const UserListDb = {
             location.href = url
         },
         requestData() {
-            let url = "/api/list_db";
+            let url = "/api/list_text_db";
             axios.get(url).then((response) => {
                 this.dbs = response.data;
                 console.log(response.data);

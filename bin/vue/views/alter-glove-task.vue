@@ -91,12 +91,14 @@ const AlterGloveTask = {
                 {value:5,label:5}
             ],
             dbs: [],
+            llms: [],
         }
     },
     methods: {
         gotoList() {
             location.href = ("/mag/list_glove_task")
         },
+
         onSubmit() {
             let url = "/api/alter_glove_task";
             console.log("data:" + JSON.stringify(this.task));
@@ -124,7 +126,7 @@ const AlterGloveTask = {
             });
         },
         fetchDBData() {
-            let url = "/api/list_db";
+            let url = "/api/list_text_db";
             // let url = helper.getServiceApiAddr() + "api/db_detail/" + db;
             axios.get(url).then((response) => {
                 this.dbs = response.data.goodDbs;

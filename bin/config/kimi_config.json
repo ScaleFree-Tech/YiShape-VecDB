@@ -1,0 +1,7 @@
+{
+  "requestIdTemplate" : "mycompany-%d",
+  "apiKeyEncrypted" : "S6thnPNFimqx9qJv2NdlVRz8y1dAqz/uNrnL9YaMOhKgaCstfiMOP6gId+rus6rc02pDPBFKgjA=",
+  "model" : "kimi-k2-0711-preview",
+  "ifInUse" : true,
+  "options" : ""
+}

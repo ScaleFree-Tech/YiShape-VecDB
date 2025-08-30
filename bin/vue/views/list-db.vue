@@ -98,7 +98,7 @@
                                     大模型挂载
                                 </div>
                             </template>
-                            {{ db.llmType }}
+                            {{ db.modelExpr }}        
                         </el-descriptions-item>
                         <el-descriptions-item>
                             <template #label>
@@ -278,7 +278,7 @@ const ListDb = {
             }).catch(() => { });
         },
         doDelete(db) {
-            let url = "/api/delete_db";
+            let url = "/api/delete_text_db";
             params = { "db": db };
             axios.post(url, params, {
                 headers: {
@@ -293,7 +293,7 @@ const ListDb = {
             });
         },
         requestData() {
-            let url = "/api/list_db";
+            let url = "/api/list_text_db";
             axios.get(url).then((response) => {
                 this.dbs = response.data;
                 console.log(response.data);
