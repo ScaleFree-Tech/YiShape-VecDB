@@ -176,7 +176,7 @@
 
 ### 许可证
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+本项目采用 GPL-3.0 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
 ### 联系我们
 
@@ -284,7 +284,7 @@ We welcome all forms of contributions! Please check [CONTRIBUTING.md](CONTRIBUTI
 
 ### License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
 
 ### Contact Us
 
