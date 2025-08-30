@@ -1,10 +1,10 @@
-# YiShape-VecDB (易形空间向量数据库管理系统)
+# YiShape-VecDB (易形空间 向量数据库管理系统)
 
 [![License](https://img.shields.io/badge/license-GPL-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/java-24+-blue.svg)](https://www.oracle.com/java/technologies/downloads/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/ScaleFree-Tech/yishape)
 
-> 基于JAVA开发的面向大语言模型、自然语言处理、图像检索等新型人工智能应用的专用向量数据库管理系统及场景应用辅助系统
+> 易形空间 - 寓意通过灵活、丰富的空间变换，实现最优向量表征、向量索引与向量检索计算。
 
 [English](#english) | [中文](#中文)
 
@@ -24,7 +24,7 @@
 
 #### 🔍 智能向量检索
 - **多模态支持**: 支持文本、图像、语音等多种数据类型的向量化存储与检索
-- **多种向量化方法**: 支持GloVe、DistilBERT、自训练模型等多种向量化算法
+- **自研向量化方法**: 在GloVe、DistilBERT、ResNet等基础上进行距离度量学习，实现最优向量表征
 - **高效索引技术**: 支持HNSW、E2LSH、扁平索引等多种向量索引方法
 - **混合检索策略**: 结合BM25关键词检索和向量相似性检索，提供更精准的搜索结果
 
@@ -196,7 +196,7 @@ This project focuses on the development of a dedicated graphical user interface 
 
 #### 🔍 Intelligent Vector Retrieval
 - **Multi-modal Support**: Supports vectorized storage and retrieval of multiple data types including text, images, and audio
-- **Multiple Vectorization Methods**: Supports various vectorization algorithms including GloVe, DistilBERT, and self-trained models
+- **Optimized Vectorization Methods**: Based on GloVe, DistilBERT, ResNet, etc., distance metric learning is carried out to achieve the optimal vector representation.
 - **Efficient Indexing Technology**: Supports multiple vector indexing methods including HNSW, E2LSH, and flat indexing
 - **Hybrid Retrieval Strategy**: Combines BM25 keyword retrieval and vector similarity retrieval for more accurate search results
 
