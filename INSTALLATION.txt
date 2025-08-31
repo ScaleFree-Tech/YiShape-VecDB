@@ -12,7 +12,7 @@
 本软件为简化“易形空间 向量数据库管理系统”安装部署而设计，目的是一键启动系统，免去安装多个支持环境软件的繁琐。
 
 系统运行条件需求如下：
-操作系统：64位WINDOWS系统（Unix/Linux请使用标准JAVA系统部署方式，32位系统可用内存过小，不支持。）
+操作系统：64位WIN 10以上Wiindows系统（Unix/Linux请使用标准JAVA系统部署方式，32位系统可用内存过小，不支持。）
 物理内存：>4G
 
 
@@ -62,3 +62,67 @@ netstat -ano
 Email: Lteb2002@163.com
 2025.8
 
+
+YiShape Space Vector Database Management System
+Manager Version: v1.0
+
+Statement: This manager is a free auxiliary tool provided for user convenience. Its source code is not included in any version of the provided code.
+
+If you are only running the vector database system for testing, it is recommended to launch the graphical interface using bin/YiShape.exe.
+If you intend to run this software as a Windows system service for automatic startup, please run scripts/InstallService.bat.
+
+I. Software Introduction and Operating Conditions
+This software is designed to simplify the installation and deployment of the "YiShape Space Vector Database Management System," aiming to provide a one-click startup solution and eliminate the complexity of installing multiple supporting environment software.
+
+System Operating Requirements:
+
+Operating System: 64-bit Windows 10 or above Windows
+System ForUnix/Linux, please use the standard Java system deployment method.32−bit systems are notsupported due to insufficient available memory.
+Physical Memory: >4GB
+II. Operating Steps
+Run the shortcut of the YiShape.exe file in this directory or directly run bin/YiShape.exe. The graphical interface of the software should appear after launching.
+
+Before starting the system, please confirm the port number you intend to use. To check the occupied ports on Windows, open the Command Prompt by entering CMD in the "Run" dialog from the Start menu, and then enter the following command:
+
+netstat -ano  
+Configure an unused port for this software the default port configured for this software is 7090.
+
+After configuring the port, click "Start" to launch the database system server. The startup process takes approximately 3 seconds; please be patient.
+Once the log window displays that the startup is complete, click "Access Client" to open the system frontend, or click "Access Admin Portal" to open the system management entrance.
+
+The default username and password for the admin portal are:
+Username: admin
+Password: 123456
+
+III. System Access
+This system is a B/S Browser/Server architecture software. Once the software is launched, it can be accessed locally. However, the primary purpose of the system is to function as server software. As long as one computer on the network runs this software, other computers can remotely access the system via a browser.
+
+Assuming the IP address of the computer server running this software is 192.168.1.1 and the port number is 7090, other computers can access the system by:
+Opening a browser and entering the following in the address bar:
+
+http://192.168.1.1:7090  
+Please ensure that the firewall on the computer running this software has the corresponding port open.
+
+IV. Registering System Service
+Running the batch file bin/InstallService.bat will register this software as a system service, enabling automatic startup upon boot.
+Running the batch file bin/UninstallService.bat will uninstall this software from the system services, disabling automatic startup.
+
+Note: When registering the software as a system service, the background service will automatically start. To prevent port conflicts, ensure that the graphical interface of this software is closed right−click the system tray icon and select "Exit" when registering the system service.
+
+VI. Data Backup and Recovery
+The data files are located in the .\bin\db_data directory by default. Please regularly back up this folder to another location. To restore data, first close the system program exit by right−clicking the program icon in the system tray, then replace the db_data directory in the system with the backup db_data directory.
+
+Important: "Replace" means deleting or moving the existing db_data directory to another location, not directly overwriting it. Directly overwriting data with backup files may cause some files to fail to be replaced or result in unrecognized data files, permanently leading to data errors and system crashes.
+
+VII. Software Upgrade
+To upgrade this software, please download the latest version of the "YiShape Space Vector Database Management System" directly from the official website.
+To restore original data, please refer to the method described in Section VI.
+
+Technical Support:
+
+R&D: Big Data and Decision Analysis Research Center, University of Electronic Science and Technology of China
+Operations and Support: Chengdu Scale-Free Network Technology Co., Ltd.
+Website: http://www.yishape.com
+Address: 2006 Xiyuan Avenue, West Hi-Tech Zone, Chengdu
+Email: Lteb2002@163.com
+Aug., 2025
