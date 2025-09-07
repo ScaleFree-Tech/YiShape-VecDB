@@ -181,7 +181,7 @@
 
 ### 联系我们
 
-- 项目主页: [https://github.com/ScaleFree-Tech/YiShape-VecDB](https://github.com/ScaleFree-Tech/YiShape-VecDB)
+- 项目主页: [https://github.com/ScaleFree-Tech/YiShape-VecDB](https://github.com/ScaleFree-Tech/YiShape-VecDB)，[https://gitee.com/scalefree-tech/yishape-vecdb](https://gitee.com/scalefree-tech/yishape-vecdb).
 - 问题反馈: [Issues](https://github.com/ScaleFree-Tech/YiShape-VecDB/issues)
 - 功能建议: [Discussions](https://github.com/ScaleFree-Tech/YiShape-VecDB/discussions)
 
@@ -288,7 +288,7 @@ This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) 
 
 ### Contact Us
 
-- Project Homepage: [https://github.com/ScaleFree-Tech/YiShape-VecDB](https://github.com/ScaleFree-Tech/YiShape-VecDB)
+- Project Homepage: [https://github.com/ScaleFree-Tech/YiShape-VecDB](https://github.com/ScaleFree-Tech/YiShape-VecDB), [https://gitee.com/scalefree-tech/yishape-vecdb](https://gitee.com/scalefree-tech/yishape-vecdb).
 - Issue Reports: [Issues](https://github.com/ScaleFree-Tech/YiShape-VecDB/issues)
 - Feature Suggestions: [Discussions](https://github.com/ScaleFree-Tech/YiShape-VecDB/discussions)
 
